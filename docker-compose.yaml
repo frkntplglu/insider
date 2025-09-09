@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: insider-postgresql
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: insider
+      POSTGRES_PASSWORD: insider
+      POSTGRES_DB: insiderdb
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:8
+    container_name: insider-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
