@@ -51,7 +51,7 @@ You can use .env file to configure db, redis, server etc.
 
 ```bash
 # Clone the project
-git clone 
+git clone git@github.com:frkntplglu/insider.git
 
 # Create db with default value
 docker-compose up -d
